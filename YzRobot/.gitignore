@@ -1,7 +1,8 @@
 /.*/
-/Library
-/Logs
-/Temp
+/Build/
+/Library/
+/Logs/
+/Temp/
 /UserSettings/
 /obj/
 .vsconfig

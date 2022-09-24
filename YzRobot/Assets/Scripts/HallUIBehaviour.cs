@@ -6,6 +6,7 @@ public class HallUIBehaviour : MonoBehaviour
 {
     public GameObject loginPanel;
     public GameObject settingPanel;
+    public GameObject quitDialog;
 
     void Start()
     {
@@ -32,5 +33,20 @@ public class HallUIBehaviour : MonoBehaviour
     public void OnClickSettingSaveButton()
     {
 
+    }
+
+    public void OnClickQuitButton()
+    {
+        quitDialog.SetActive(true);
+    }
+
+    public void OnClickQuitYesButton()
+    {
+        Application.Quit();
+    }
+
+    public void OnClickQuitNoButton()
+    {
+        quitDialog.SetActive(false);
     }
 }
