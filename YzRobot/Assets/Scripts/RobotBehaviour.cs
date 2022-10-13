@@ -10,6 +10,7 @@ public class RobotBehaviour : MonoBehaviour
     public const int AttackByFire = 2;
     public const int MoveByWalk = 1;
     public const int MoveByJump = 2;
+    public const int MoveByDash = 3;
 
     public float hp = 100f;     // 当前血量
     public float hpMax = 100f;  // 最大血量
@@ -18,6 +19,7 @@ public class RobotBehaviour : MonoBehaviour
     public float beatSpeed = 40f; // 打击速度
     public float fireSpeed = 40f; // 开火速度
     public float walkSpeed = 6f; // 行走速度
+    public float dashSpeed = 10f; // 冲刺速度
     public float turnSpeed = 40f; // 转身速度
 
     public Transform muzzle; // 枪口定位
@@ -57,6 +59,17 @@ public class RobotBehaviour : MonoBehaviour
             Time.deltaTime * turnSpeed
         ).normalized;
         body.velocity = transform.forward * walkSpeed;
+    }
+
+    public void Dash(Vector3 direction)
+    {
+        animator.SetInteger("MoveMode", MoveByDash);
+        transform.forward = Vector3.Lerp(
+            transform.forward,
+            direction,
+            Time.deltaTime * turnSpeed
+        ).normalized;
+        body.velocity = transform.forward * dashSpeed;
     }
 
     public void Jump()

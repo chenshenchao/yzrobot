@@ -40,6 +40,7 @@ public class SelfBehaviour : MonoBehaviour
             }
             else if (direction != Vector3.zero)
             {
+                var isDash = Input.GetKey(KeyCode.L);
                 robot.Walk(direction);
             }
             else
